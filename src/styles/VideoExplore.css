@@ -1,0 +1,63 @@
+.video-explore-container {
+  width: 100%;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.video-controls {
+  margin-top: 20px;
+}
+
+.image-container {
+  position: relative;
+}
+
+.snapshot-image {
+  width: 100%;
+  max-width: 600px;
+  border: 1px solid #ccc;
+  margin-top: 20px;
+}
+
+.saved-item {
+  display: flex;
+  flex-direction: column;
+  margin-top: 20px;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  margin-bottom: 20px;
+}
+
+.saved-item img.sub-image {
+  width: 100%;
+  max-width: 200px;
+  border: 1px solid #ccc;
+  margin-top: 10px;
+
+}
+
+.download-button {
+  display: inline-block;
+  margin-top: 10px;
+  padding: 5px 10px;
+  background-color: #007bff;
+  color: white;
+  text-decoration: none;
+  border-radius: 5px;
+}
+
+.download-button:hover {
+  background-color: #0056b3;
+}
+
+.image-container-test {
+  width: 100%; /* Consider using 100% or a defined width */
+  max-width: 50%; /* Alternatively, use max-width for responsiveness */
+  height: auto;
+}
+
+.annotation-display{
+  display: flex;
+  flex-direction: row;
+}
