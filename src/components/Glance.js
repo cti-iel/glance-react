@@ -2,11 +2,12 @@ import React, { useState } from "react";
 import { Link, useLocation } from "react-router-dom";
 
 import "../styles/App.css";
-import Insights from "./Insights";
+import ContextStudio from "./ContextStudio";
+import ContextLibrary from "./ContextLibrary";
 import Data from "./Data";
 import Configure from "./Configure";
 import VideoExplore from "./VideoExplore";
-import Context from "./Context";
+import Insights from "./Insights";
 
 // Import Images
 import glanceLogo from "../media/glance-logo.png"; // Adjust the path as necessary
@@ -66,6 +67,13 @@ function Glance() {
             <Link to="/glance/library" className="history-description">
               Find out the number of times the red light flashed yesterday...
             </Link>
+            <Link
+              to="/glance/library"
+              onClick={() => handleLinkClick("/glance/library")}
+            >
+              <img src={historyIcon} alt="Context History" />
+              <span>Library</span>
+            </Link>
           </div>
         </div>
         <div className="logout-button">
@@ -88,19 +96,19 @@ function Glance() {
             </Link>
 
             <Link
-              to="/glance/insights"
-              className={activeLink === "/glance/insights" ? "active" : ""}
-              onClick={() => handleLinkClick("/glance/insights")}
-            >
-              Insights
-            </Link>
-
-            <Link
               to="/glance/context"
               className={activeLink === "/glance/context" ? "active" : ""}
               onClick={() => handleLinkClick("/glance/context")}
             >
               Context Studio
+            </Link>
+
+            <Link
+              to="/glance/insights"
+              className={activeLink === "/glance/insights" ? "active" : ""}
+              onClick={() => handleLinkClick("/glance/insights")}
+            >
+              Insights
             </Link>
           </nav>
         )}
@@ -111,17 +119,17 @@ function Glance() {
         </div>
         <div
           style={{
-            display: activeLink === "/glance/insights" ? "block" : "none",
-          }}
-        >
-          <Insights />
-        </div>
-        <div
-          style={{
             display: activeLink === "/glance/context" ? "block" : "none",
           }}
         >
-          <Context />
+          <ContextStudio />
+        </div>
+        <div
+          style={{
+            display: activeLink === "/glance/library" ? "block" : "none",
+          }}
+        >
+          <ContextLibrary />
         </div>
         <div
           style={{
@@ -132,10 +140,10 @@ function Glance() {
         </div>
         <div
           style={{
-            display: activeLink === "/glance/library" ? "block" : "none",
+            display: activeLink === "/glance/insights" ? "block" : "none",
           }}
         >
-          <VideoExplore />
+          <Insights />
         </div>
       </div>
     </div>

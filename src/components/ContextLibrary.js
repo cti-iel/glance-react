@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { FaEye, FaTrash } from "react-icons/fa";
 import "../styles/Context.css"; // Custom CSS file for styling
 
-const Context = () => {
+const ContextLibrary = () => {
   const rows = [
     {
       factory: "Astemo HK",
@@ -134,4 +134,4 @@ const Context = () => {
   );
 };
 
-export default Context;
+export default ContextLibrary;

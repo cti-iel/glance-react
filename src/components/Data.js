@@ -131,6 +131,38 @@ const Data = () => {
     newTags[index] = value;
     setTags(newTags);
   };
+
+  const handleGetInsights = async () => {
+    const data = {
+      tags: tags.filter((tag) => tag.trim() !== ""), // Filter out empty tags
+      annotations: annotations.map((annotation) => ({
+        label: annotation.label,
+        subImage: annotation.subImage,
+      })),
+    };
+
+    try {
+      const response = await fetch("http://localhost:8000/your-endpoint", {
+        // Adjust this URL to your FastAPI endpoint
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(data),
+      });
+
+      if (response.ok) {
+        const result = await response.json();
+        console.log("Insights received:", result);
+        // Handle the response, e.g., display insights or update the UI
+      } else {
+        console.error("Failed to get insights:", response.statusText);
+      }
+    } catch (error) {
+      console.error("Error occurred while getting insights:", error);
+    }
+  };
+
   return (
     <div className="upload-container">
       <h1>Connect to your Video Source</h1>
@@ -254,7 +286,9 @@ const Data = () => {
               </div>
             </div>
           </div>
-          <button className="insights-button">Get Insights</button>
+          <button className="insights-button" onClick={handleGetInsights}>
+            Get Insights
+          </button>
         </div>
       )}
     </div>
