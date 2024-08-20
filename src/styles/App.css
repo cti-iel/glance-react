@@ -461,61 +461,7 @@ overflow: hidden;
   opacity: 1;
 }
 
- .video-container{
-  position: relative;
-  display: inline-block;
-}
-
-.video-container .capture-button{
-  position: absolute;
-      top: 20px;
-      right: 20px;
-      background-color: rgba(0, 0, 0, 0.5);
-      color: white;
-      border: none;
-      padding: 10px;
-      border-radius: 5px;
-      cursor: pointer;
-      font-size: 14px;
-}
-
-.capture-button:hover {
-  background-color: rgba(0, 0, 0, 0.8);
-}
-
-/* Tooltip styling */
-.capture-button .tooltip-text {
-  visibility: hidden;
-  width: 120px;
-  background-color: teal;
-  color: #fff;
-  text-align: center;
-  border-radius: 6px;
-  padding: 5px 0;
-  position: absolute;
-  z-index: 1;
-  bottom: 150%; /* Position above the button */
-  left: 50%;
-  margin-left: -60px; /* Adjust based on width */
-  opacity: 0;
-  transition: opacity 0.3s;
-}
-
-.capture-button .tooltip-text::after {
-  content: "";
-  position: absolute;
-  top: 100%; /* Arrow pointing downwards */
-  left: 50%;
-  margin-left: -5px;
-  border-width: 5px;
-  border-style: solid;
-  border-color: black transparent transparent transparent;
-}
-
-.capture-button:hover .tooltip-text {
-  visibility: visible;
-  opacity: 1;
-}
+ 
 /* src/components/VideoGallery.css */
 .video-gallery {
   display: flex;
@@ -771,11 +717,25 @@ overflow: hidden;
   flex-direction: column;
 }
 
+.tag-container ol {
+  margin-left: 20px; /* Indent the list */
+  padding-left: 20px; /* Ensure padding for bullets */
+  text-align: left; /* Align the list items to the left */
+}
+
 .tag-container label {
   margin-bottom: 5px;
   
   font-family: 'Inter', sans-serif;  /* Change to your desired font */
   font-size: 16px;  /* Adjust the size to your needs */
+  color: #333;  /* Set the text color */
+}
+
+.tag-container h3 {
+  margin-bottom: 5px;
+  
+  font-family: 'Inter', sans-serif;  /* Change to your desired font */
+  font-size: 12px;  /* Adjust the size to your needs */
   color: #333;  /* Set the text color */
 }
 
@@ -793,7 +753,7 @@ overflow: hidden;
 }
 
 .add-tag-button {
-  background-color: #007bff;
+  background-color: teal;
   color: white;
   border: none;
   padding: 8px;
@@ -807,7 +767,7 @@ overflow: hidden;
 }
 
 .add-tag-button:hover {
-  background-color: #0056b3;
+  background-color: #2e5a2e;
 }
 
 .add-tag-button svg {
@@ -833,6 +793,74 @@ overflow: hidden;
   flex-direction: column;
   margin-top: 20px;
   margin-bottom: 30px;
+  justify-content: center; /* Center the video container */
+
+}
+
+.video-controls  .video-container{
+  position: relative;
+  width: 100%;
+  max-width: 600px; /* Ensure the video doesn't exceed this width */
+  margin-left: auto; /* Center the container within the parent */
+  margin-right: auto; /* Center the container within the parent */
+}
+
+.video-controls  .video-container video {
+  display: block;
+  width: 100%; /* Make the video responsive */
+  height: auto;
+
+}
+
+.video-controls  .video-container .capture-button{
+  position: absolute;
+      top: 20px;
+      right: 10px;
+      background-color: rgba(0, 0, 0, 0.5);
+      color: white;
+      border: none;
+      padding: 10px;
+      border-radius: 5px;
+      cursor: pointer;
+      font-size: 14px;
+}
+
+.capture-button:hover {
+  background-color: rgba(0, 0, 0, 0.8);
+}
+
+/* Tooltip styling */
+.capture-button .tooltip-text {
+  visibility: hidden;
+  width: 120px;
+  background-color: teal;
+  color: #fff;
+  text-align: center;
+  border-radius: 6px;
+  padding: 5px 0;
+  position: absolute;
+  z-index: 1;
+  bottom: 150%; /* Position above the button */
+  left: 50%;
+  margin-left: -60px; /* Adjust based on width */
+  opacity: 0;
+  transition: opacity 0.3s;
+}
+
+.capture-button .tooltip-text::after {
+  content: "";
+  position: absolute;
+  top: 100%; /* Arrow pointing downwards */
+  left: 50%;
+  margin-left: -5px;
+  border-width: 5px;
+  border-style: solid;
+  border-color: black transparent transparent transparent;
+}
+
+.capture-button:hover .tooltip-text {
+  visibility: visible;
+  opacity: 1;
 }
 
 .image-container {
@@ -887,4 +915,19 @@ overflow: hidden;
 .annotation-display{
   display: flex;
   flex-direction: row;
+}
+
+.video-controls .insights-button{
+  background-color: teal;
+  color: white;
+  border: none;
+  padding: 8px;
+  border-radius: 5px;
+  margin-left: auto;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 10%;
+  margin-bottom: 40px;
 }

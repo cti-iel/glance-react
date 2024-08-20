@@ -201,32 +201,12 @@ const Data = () => {
           <div className="input-section">
             <div className="input-section-div">
               <div className="tag-container">
-                <label htmlFor="tag">Describe the video in a few words</label>
-                {tags.map((tag, index) => (
-                  <div key={index} className="tag-input-container">
-                    <input
-                      type="text"
-                      value={tag}
-                      onChange={(e) => handleTagChange(index, e.target.value)}
-                      placeholder="Word or Short Phrase"
-                      className="tag-input"
-                    />
-                  </div>
-                ))}
-                <button onClick={addTagInput} className="add-tag-button">
-                  <FaPlus />
-                </button>
-              </div>
-            </div>
-          </div>
-
-          <div className="input-section">
-            <div className="input-section-div">
-              <div className="tag-container">
-                <label htmlFor="tag">
-                  Describe the video with Annotated pictures
-                </label>
-                <h3>Take Snapshot from Video</h3>
+                <label htmlFor="tag">Describe the video with Annotations</label>
+                <ol>
+                  <li>Use Snapshot button to capture image</li>
+                  <li>Draw Bounding box with cursor and enter tag</li>
+                  <li>Repeat steps if necessary</li>
+                </ol>
                 <canvas ref={canvasRef} style={{ display: "none" }} />
                 {snapshot && (
                   <div>
@@ -252,6 +232,29 @@ const Data = () => {
               </div>
             </div>
           </div>
+
+          <div className="input-section">
+            <div className="input-section-div">
+              <div className="tag-container">
+                <label htmlFor="tag">Describe the video with Words</label>
+                {tags.map((tag, index) => (
+                  <div key={index} className="tag-input-container">
+                    <input
+                      type="text"
+                      value={tag}
+                      onChange={(e) => handleTagChange(index, e.target.value)}
+                      placeholder="Word or Short Phrase"
+                      className="tag-input"
+                    />
+                  </div>
+                ))}
+                <button onClick={addTagInput} className="add-tag-button">
+                  <FaPlus />
+                </button>
+              </div>
+            </div>
+          </div>
+          <button className="insights-button">Get Insights</button>
         </div>
       )}
     </div>
