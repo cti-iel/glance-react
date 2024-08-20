@@ -83,7 +83,7 @@ overflow: hidden;
   padding: 40px;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
   padding-top: 10vh;
-
+  margin-bottom: 20px;
 }
 
 .login-section h2 {
@@ -282,10 +282,10 @@ overflow: hidden;
 .main-container .upload-container {
   flex: 3;
   text-align: center;
-  padding-top: 10vh;
+  padding-top: 5vh;
   background-color: white;
   border-radius: 1%;
-  
+  align-items: center;
   height: 100vh; /* Ensure it takes the full height */
  
  
@@ -307,7 +307,7 @@ overflow: hidden;
   display: flex;
   justify-content: center;
   margin-bottom: 30px;
- 
+  margin-top: 20px;
 }
 
 .small-card {
@@ -461,7 +461,7 @@ overflow: hidden;
   opacity: 1;
 }
 
-.video-container{
+ .video-container{
   position: relative;
   display: inline-block;
 }
@@ -718,4 +718,173 @@ overflow: hidden;
   margin-top: 5px; /* Space between the button and text */
   margin-left: 40px;
   margin-bottom: 10px;
+}
+
+
+.upload-container .input-section {
+  margin-top: 20px;
+  padding: 15px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  background-color: #f9f9f9;
+  margin-bottom: 20px;
+  width: 50%;
+  margin-left: auto;
+  margin-right: auto; 
+}
+
+.upload-container .input-section-div {
+  display: flex;
+  flex-direction: column;
+}
+
+/*
+.dropdown-container {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 15px;
+}
+
+*/
+.card-container, .dropdown-container {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  
+ 
+}
+
+.dropdown-container label {
+  margin-right: 10px;
+  font-weight: bold;
+}
+
+.dropdown-container select {
+  padding: 5px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  width: 45%; /* Adjust this width based on your needs */
+}
+
+.tag-container {
+  display: flex;
+  flex-direction: column;
+}
+
+.tag-container label {
+  margin-bottom: 5px;
+  
+  font-family: 'Inter', sans-serif;  /* Change to your desired font */
+  font-size: 16px;  /* Adjust the size to your needs */
+  color: #333;  /* Set the text color */
+}
+
+.tag-input-container {
+  display: flex;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.tag-input {
+  flex-grow: 1;
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+.add-tag-button {
+  background-color: #007bff;
+  color: white;
+  border: none;
+  padding: 8px;
+  border-radius: 5px;
+  margin-left: 10px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 10%;
+}
+
+.add-tag-button:hover {
+  background-color: #0056b3;
+}
+
+.add-tag-button svg {
+  margin-right: 5px;
+}
+
+
+.video-explore-container {
+  width: 100%;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+/*
+.upload-container .video-controls {
+  margin-top: 20px;
+  margin-bottom: 30px; 
+
+}
+*/
+.upload-container .input-section, .upload-container .video-controls {
+  display: flex;
+  flex-direction: column;
+  margin-top: 20px;
+  margin-bottom: 30px;
+}
+
+.image-container {
+  position: relative;
+}
+
+.snapshot-image {
+  width: 100%;
+  max-width: 600px;
+  border: 1px solid #ccc;
+  margin-top: 20px;
+}
+
+.saved-item {
+  display: flex;
+  flex-direction: column;
+  margin-top: 20px;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  margin-bottom: 20px;
+}
+
+.saved-item img.sub-image {
+  width: 100%;
+  max-width: 200px;
+  border: 1px solid #ccc;
+  margin-top: 10px;
+
+}
+
+.download-button {
+  display: inline-block;
+  margin-top: 10px;
+  padding: 5px 10px;
+  background-color: #007bff;
+  color: white;
+  text-decoration: none;
+  border-radius: 5px;
+}
+
+.download-button:hover {
+  background-color: #0056b3;
+}
+
+.image-container-test {
+  width: 100%; /* Consider using 100% or a defined width */
+  max-width: 50%; /* Alternatively, use max-width for responsiveness */
+  height: auto;
+}
+
+.annotation-display{
+  display: flex;
+  flex-direction: row;
 }

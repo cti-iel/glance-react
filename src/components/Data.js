@@ -1,16 +1,15 @@
 import React, { useState, useRef, useEffect } from "react";
-import { FaFolder, FaDatabase, FaCamera } from "react-icons/fa";
+import { FaFolder, FaDatabase, FaCamera, FaPlus } from "react-icons/fa";
 import "@recogito/annotorious/dist/annotorious.min.css";
 import { Annotorious } from "@recogito/annotorious";
-import "../styles/VideoExplore.css"; // Ensure you create and link this CSS file
 
-import InputBox from "./InputBox";
 import "../styles/App.css";
 
 const Data = () => {
   const [videoSrc, setVideoSrc] = useState(null);
   const [snapshot, setSnapshot] = useState(null);
   const [annotations, setAnnotations] = useState([]);
+  const [tags, setTags] = useState([""]);
 
   const videoRef = useRef(null);
   const canvasRef = useRef(null);
@@ -123,10 +122,39 @@ const Data = () => {
     }
   };
 
+  const addTagInput = () => {
+    setTags([...tags, ""]);
+  };
+
+  const handleTagChange = (index, value) => {
+    const newTags = [...tags];
+    newTags[index] = value;
+    setTags(newTags);
+  };
   return (
     <div className="upload-container">
       <h1>Connect to your Video Source</h1>
-      <h2>Glance works with only your own Data</h2>
+
+      <div className="input-section">
+        <div className="input-section-div">
+          <div className="dropdown-container">
+            <label htmlFor="factory-name">Factory Name:</label>
+            <select id="factory-name">
+              <option value="factory1">Greenfield</option>
+              <option value="factory2">Berea</option>
+              <option value="factory3">Harrodsburg</option>
+            </select>
+
+            <label htmlFor="camera-id">Camera ID:</label>
+            <select id="camera-id">
+              <option value="camera1">SMT-14</option>
+              <option value="camera2">Motor Line</option>
+              <option value="camera3">Invertor Line</option>
+            </select>
+          </div>
+        </div>
+      </div>
+
       <div className="card-container">
         <div className="small-card" id="local-card">
           <FaFolder size={50} />
@@ -170,29 +198,59 @@ const Data = () => {
             </div>
           </div>
 
-          <InputBox placeholder="Describe the video in your own words"></InputBox>
-          <canvas ref={canvasRef} style={{ display: "none" }} />
-          {snapshot && (
-            <div>
-              <h3>Draw Bounding Boxes and explain what is happening</h3>
-              <div className="image-container">
-                <img
-                  src={snapshot}
-                  alt="Snapshot of video frame"
-                  className="snapshot-image"
-                  ref={imgRef}
-                />
+          <div className="input-section">
+            <div className="input-section-div">
+              <div className="tag-container">
+                <label htmlFor="tag">Describe the video in a few words</label>
+                {tags.map((tag, index) => (
+                  <div key={index} className="tag-input-container">
+                    <input
+                      type="text"
+                      value={tag}
+                      onChange={(e) => handleTagChange(index, e.target.value)}
+                      placeholder="Word or Short Phrase"
+                      className="tag-input"
+                    />
+                  </div>
+                ))}
+                <button onClick={addTagInput} className="add-tag-button">
+                  <FaPlus />
+                </button>
               </div>
             </div>
-          )}
-          <div className="annotation-display">
-            {annotations.map((annotation, index) => (
-              <div key={index} className="saved-item">
-                <p>Label: {annotation.label}</p>
+          </div>
 
-                <img src={annotation.subImage} className="sub-image" />
+          <div className="input-section">
+            <div className="input-section-div">
+              <div className="tag-container">
+                <label htmlFor="tag">
+                  Describe the video with Annotated pictures
+                </label>
+                <h3>Take Snapshot from Video</h3>
+                <canvas ref={canvasRef} style={{ display: "none" }} />
+                {snapshot && (
+                  <div>
+                    <div className="image-container">
+                      <img
+                        src={snapshot}
+                        alt="Snapshot of video frame"
+                        className="snapshot-image"
+                        ref={imgRef}
+                      />
+                    </div>
+                  </div>
+                )}
+                <div className="annotation-display">
+                  {annotations.map((annotation, index) => (
+                    <div key={index} className="saved-item">
+                      <p>Label: {annotation.label}</p>
+
+                      <img src={annotation.subImage} className="sub-image" />
+                    </div>
+                  ))}
+                </div>
               </div>
-            ))}
+            </div>
           </div>
         </div>
       )}
