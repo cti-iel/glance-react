@@ -64,7 +64,7 @@ const LandingPage = () => {
       <div className="logo-section" style={backgroundImageStyle}></div>
       <div className="login-section">
         <h2>Glance</h2>
-        <p className="subtitle">Industrial Video Analytics at Scale: xoxo</p>
+        <p className="subtitle">Industrial Video Analytics at Scale</p>
         <form onSubmit={handleLogin}>
           <input
             type="text"
