@@ -83,7 +83,7 @@ overflow: hidden;
   padding: 40px;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
   padding-top: 10vh;
-  margin-bottom: 20px;
+  
 }
 
 .login-section h2 {
@@ -215,11 +215,46 @@ overflow: hidden;
   flex-direction: column;
   }
 
-  .main-container .side_panel .side-panel-logo{
+/*  .side-panel-logo{
     margin-bottom: 20px;
-
+    display: inline-flex; 
+    align-items: center; 
+    padding: 5px 10px; 
+    border-radius: 30px; 
+    transition: box-shadow 0.3s ease, background-color 0.3s ease;
+    background-color: transparent; 
+    position: relative;
   }
-  .side_panel .side-panel-button {
+ */
+
+ .side-panel-logo {
+  margin-bottom: 20px;
+  display: inline-flex; /* Keeps content inline */
+  align-items: center; /* Centers content vertically */
+  padding: 5px; /* Basic padding for content */
+  border-radius: 30px; /* Rounded corners */
+  transition: box-shadow 0.3s ease, background-color 0.3s ease; /* Smooth transition */
+  background-color: transparent; /* Transparent by default */
+  border: none; /* Remove default button border */
+  cursor: pointer; /* Change cursor to pointer on hover */
+  text-decoration: none; /* Remove any default text decoration */
+  outline: none; /* Remove outline on focus */
+}
+
+   .side-panel-logo .logo-image {
+    width: 100px;  /* Smaller width for the logo */
+    height: auto;
+    position: relative; /* Keep the image relative to the text */
+    z-index: 1; /* Ensures the image stays above the background on hover */
+  }
+  .side-panel-logo:hover {
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15); /* Shadow effect on hover */
+    background-color: #f9f9f9; /* Optional: slight background color change */
+  
+  }
+
+
+   .side-panel-button {
     display: flex;
     align-items: center;
     margin-bottom: 20px;
@@ -303,59 +338,88 @@ overflow: hidden;
   font-size: medium;
 }
 
-.card-container {
+.upload-container .upload-canvas-container{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  min-width: 50%;
+  min-height: 200px;
+  margin-left: auto;
+  margin-right: auto;
+  overflow-x: auto;
+  white-space: nowrap;
+}
+
+.upload-canvas-container p{
+  font-family: 'Inter', sans-serif;
+  font-size: small;
+  font-style: italic;
+  color: #97979c;
+}
+
+.upload-container .card-container {
   display: flex;
   justify-content: center;
+  padding-top: 20px;
+  width: 100%;
+  margin-left: auto;
+  margin-right: auto;
   margin-bottom: 30px;
-  margin-top: 20px;
 }
 
 .small-card {
-  background-color: #f9f9f9;
-  padding: 20px;
-  border-radius: 10px;
-  width: 10%;
+
+  padding-left: 20px;
+  padding-right: 20px;
+  border-radius: 5px;
+  background: none;
   margin: 0 10px;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   text-align: center;
   transition: transform 0.3s;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center; /* Center content horizontally */
-}
-
-
-.small-card:hover {
-  transform: translateY(-5px);
-}
-
-.small-card img {
-  width: 50px;
-  height: 50px;
-  margin-bottom: 15px;
-}
-
-.small-card p {
-  margin-bottom: 15px;
-  font-size: 0.9em;
-  align-items: center;
+ 
 }
 
 .small-card button {
-  padding: 10px 20px;
-  background: #1f4749; 
-  color: #fff;
-  border: none;
-  border-radius: 5px;
+ 
+  background: none; 
+  padding: 10px;
+  border: rgb(34, 11, 11) ;
+  border-radius: 15px;
   cursor: pointer;
-  transition: background 0.3s ease;
-  width: 100%;
+
 }
 
-.small-card button:hover {
-  background: teal;
+
+.upload-canvas-container .data-studio-container { 
+  display: flex;
+  flex-direction: column;
 }
+
+.upload-canvas-container .data-studio-container img {
+  width: 100px;
+  height: 100px;
+  border-radius: 8px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  margin: 10px;
+  cursor: pointer;
+  
+}
+
+.upload-canvas-container .thumbnail-container { 
+  display: flex;
+  flex-direction: row;
+  
+}
+
 
 /* Search Bar Styles */
 .search-bar-container {
@@ -664,6 +728,7 @@ overflow: hidden;
   margin-top: 5px; /* Space between the button and text */
   margin-left: 40px;
   margin-bottom: 10px;
+  padding: 2px;
 }
 
 
@@ -781,22 +846,32 @@ overflow: hidden;
   margin: 0 auto;
 }
 
-/*
-.upload-container .video-controls {
-  margin-top: 20px;
-  margin-bottom: 30px; 
 
-}
-*/
 .upload-container .input-section, .upload-container .video-controls {
   display: flex;
   flex-direction: column;
   margin-top: 20px;
   margin-bottom: 30px;
   justify-content: center; /* Center the video container */
-
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Add a shadow */
 }
 
+.upload-container .input-section, .upload-container .video-annotation-div {
+  display: flex;
+  flex-direction: column;
+  margin-top: 20px;
+  margin-bottom: 30px;
+  justify-content: center; /* Center the video container */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Add a shadow */
+  min-height: 200px;
+}
+
+.video-annotation-div p {
+  font-family: 'Inter', sans-serif;
+  font-size: small;
+  font-style: italic;
+  color: #97979c;
+}
 .video-controls  .video-container{
   position: relative;
   width: 100%;
@@ -845,6 +920,7 @@ overflow: hidden;
   margin-left: -60px; /* Adjust based on width */
   opacity: 0;
   transition: opacity 0.3s;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
 .capture-button .tooltip-text::after {
@@ -915,6 +991,8 @@ overflow: hidden;
 .annotation-display{
   display: flex;
   flex-direction: row;
+  overflow-x: auto; /* Allows horizontal scrolling */
+  white-space: nowrap; /* Prevents wrapping of items to the next line */
 }
 
 .video-controls .insights-button{
@@ -930,4 +1008,351 @@ overflow: hidden;
   justify-content: center;
   width: 10%;
   margin-bottom: 40px;
+}
+
+
+/* Dashboard Page Styles */
+
+.dashboard-container {
+  margin: 0 auto;
+  padding: 20px;
+ 
+}
+
+.dashboard-header {
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+.dashboard-logo {
+  width: 150px;
+  margin-bottom: 20px;
+}
+
+.dashboard-header h2 {
+  font-size: 24px;
+  color: #333;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.dashboard-intro {
+  display: flex;
+  justify-content: space-around;
+  margin-bottom: 30px;
+}
+
+.intro-card {
+  width: 48%; /* Adjusts the width of the intro cards */
+  height: 300px; /* Set a fixed height for the video and text container */
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background-color: #fff;
+  border-radius: 8px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  max-width: 500px;
+}
+
+.intro-card .top-container{
+flex:3;
+width:100%;
+display:flex;
+align-self: center;
+justify-content: center;
+background-color: white;
+border-radius: 12px;
+}
+
+.intro-card .video-container {
+  position: relative;
+  width: 100%; /* Ensure the video container takes up the full width */
+  
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.intro-card .bottom-container{
+  flex:1;
+  width:100%;
+  display:flex;
+  
+  }
+
+  
+.intro-card  .model-image {
+  width:90%;
+  height: auto;
+  border-radius: 8px;
+  
+}
+
+
+.intro-card .bottom-container h3{
+  font-size: 20px;
+  color: #333;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-weight: lighter;
+  }
+  
+
+
+.video-placeholder {
+  width: 100%; /* Maintain the full width of the container */
+  height: 100%; /* Maintain the full height of the container */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  
+  border-radius: 8px;
+}
+
+.video-thumbnail {
+  width: 50%; /* Make the image fill the container */
+  height: auto;
+  display: block;
+  border-radius: 8px; /* Match the border-radius with the container */
+}
+
+/*  .play-button {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 3rem;
+  color: white;
+  cursor: pointer;
+  z-index: 1; 
+} */
+
+.play-button {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 2rem; /* Adjust the size of the button */
+  height: 2rem;
+  border-radius: 50%;
+  background-color: rgba(235, 226, 226, 0.6); /* Slightly transparent background */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 0 0 4px white, /* Outer white ring */
+              0 0 0 4px white; /* Faded black outer ring */
+  cursor: pointer;
+  color: white;
+}
+
+.play-button svg {
+  font-size: 50rem !important;
+  color: white;
+  opacity: 0.7; /* Make the icon slightly translucent */
+  margin: 0; /* Ensure there's no margin affecting the centering */
+  display: block; /* Ensure it behaves as a block element for proper alignment */
+}
+
+video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* Ensure the video covers the container */
+  border-radius: 8px; /* Match the border-radius with the container */
+}
+
+.intro-card h3 {
+  font-size: 18px;
+  color: #333;
+  padding: 20px;
+  text-align: center;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-weight: lighter;
+}
+
+.dashboard-projects {
+  margin-top: 30px;
+}
+
+.projects-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.projects-header h2 {
+  font-size: 20px;
+  color: #333;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.view-all-link {
+  font-size: 14px;
+  color: #007bff;
+  text-decoration: none;
+}
+
+.projects-grid {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+
+
+.project-card-new {
+  width: 23%;
+  padding: 15px;
+  background-color: #fff;
+  border-radius: 8px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  margin-bottom: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  border: 2px dashed blue;
+}
+
+.plus-button {
+  background: none;
+  border: none;
+  cursor: pointer;
+  transition: transform 0.3s ease;
+}
+
+.plus-button.disabled {
+  cursor: not-allowed;
+}
+
+.plus-button:disabled {
+  cursor: not-allowed;
+}
+
+
+.project-card {
+  width: 23%;
+  padding: 15px;
+  background-color: #fff;
+  border-radius: 8px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.project-card img {
+  width: 100%;
+  height: 150px;
+  object-fit: cover;
+  border-radius: 5px;
+  margin-bottom: 10px;
+}
+
+.project-card h4 {
+  font-size: 18px;
+  color: #333;
+}
+
+.project-card p {
+  font-size: 14px;
+  color: #666;
+}
+
+.create-project-card {
+  border: 2px dashed #007bff;
+  color: #007bff;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+}
+
+.create-project-card p {
+  margin-top: 10px;
+  font-size: 16px;
+}
+
+
+.project-creation-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  max-width: 400px; /* Adjust the width as needed */
+  margin: 0 auto; /* Center the container */
+}
+
+.project-name-input {
+  margin-top: 15px;
+  padding: 10px;
+  margin-bottom: 15px;
+  font-size: 16px;
+  border: none; /* No border */
+  outline: none; /* Remove default outline */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Add a shadow */
+  border-radius: 8px; /* Optional: Rounded corners */
+  transition: box-shadow 0.3s ease; /* Smooth transition for shadow */
+}
+
+.project-name-input::placeholder {
+  color: #999; /* Placeholder text color */
+}
+
+.project-name-input:focus {
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2); /* Stronger shadow on focus */
+}
+
+.create-project-button {
+  padding: 10px 20px;
+  font-size: 16px;
+  color: #fff;
+  background-color: teal;
+  border: none;
+  border-radius: 8px; /* Rounded corners */
+  cursor: pointer;
+  transition: background-color 0.3s ease; /* Smooth transition for background color */
+  
+}
+
+.create-project-button:hover {
+  background-color: #0056b3; /* Darker background on hover */
+}
+
+.configure-div{
+  display: flex;
+  flex-direction: row;
+  align-items: center;  
+  background-color: #f9f9f9;  
+  width: 50%;
+
+}
+
+.past-projects-info-container{
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: left;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.past-projects-info-container h3{
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-size: medium;
+}
+
+.past-projects-info-container p{
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-size: small;
+}
+
+.past-projects-img-container{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  margin-left: auto;
+  margin-right: auto;
 }

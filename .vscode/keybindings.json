@@ -1,0 +1,8 @@
+[
+    {
+      "key": "ctrl+shift+b",
+      "command": "workbench.action.tasks.build",
+      "args": "Build and Restart Nginx"
+    }
+  ]
+  

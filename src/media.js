@@ -5,27 +5,13 @@ export const media = {
   videos: [
     {
       id: 1,
-      title: "Sample Video 1",
+      title: "First Failure",
       src: result_video,
       type: "video",
     },
     {
       id: 2,
-      title: "Sample Video 2",
-      src: result_video,
-      type: "video",
-    },
-    // Add more video objects as needed
-    {
-      id: 3,
-      title: "Sample Video 3",
-      src: result_video,
-      type: "video",
-    },
-    // Add more video objects as needed
-    {
-      id: 4,
-      title: "Sample Video 4",
+      title: "Second Failure",
       src: result_video,
       type: "video",
     },
@@ -34,7 +20,7 @@ export const media = {
   images: [
     {
       id: 1,
-      title: "Sample Image 1",
+      title: "Second Failure",
       src: result_image,
       type: "image",
     },

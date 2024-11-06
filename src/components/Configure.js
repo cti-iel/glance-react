@@ -26,7 +26,7 @@ function Configure() {
     setBatchSize((prev) => Math.max(0, prev + increment));
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
     // Handle form submission logic
     console.log({
@@ -38,6 +38,37 @@ function Configure() {
       motionDetection,
       accuracySpeedTradeoff,
     });
+
+    const data = {
+      frameBatchSize: frameBatchSize,
+      clipBatchSize: clipBatchSize,
+      regressionChoice: regressionChoice,
+      iterations: iterations,
+      batchSize: batchSize,
+      motionDetection: motionDetection,
+      accuracySpeedTradeoff: accuracySpeedTradeoff,
+    };
+
+    try {
+      const response = await fetch("http://127.0.0.1:8000/query-params", {
+        // Adjust this URL to your FastAPI endpoint
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(data),
+      });
+
+      if (!response.ok) {
+        throw new Error(`HTTP error! status: ${response.status}`);
+      }
+
+      const result = await response.json();
+      console.log("Insights received:", result);
+      // Handle the response, e.g., display insights or update the UI
+    } catch (error) {
+      console.error("Error occurred while getting insights:", error);
+    }
   };
 
   return (

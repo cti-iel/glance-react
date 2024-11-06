@@ -104,21 +104,12 @@ const Data = () => {
         videoElement.currentTime = 0.1; // Seek to the first frame
       };
 
-      videoElement.onseeked = async () => {
-        try {
-          console.log("Video seeked to the first frame.");
-          await generateThumbnail(videoElement, file, url); // Ensure async handling
-        } catch (error) {
-          console.error("Error generating thumbnail:", error);
-        }
+      videoElement.onseeked = () => {
+        generateThumbnail(videoElement, file, url);
       };
 
-      //videoElement.onseeked = () => {
-      //  generateThumbnail(videoElement, file, url);
-      //};
-
-      videoElement.onerror = (e) => {
-        console.error("Error loading video.", e);
+      videoElement.onerror = () => {
+        console.error("Error loading video.");
       };
     } else {
       console.error("No file selected or selected file is not a video.");
@@ -179,7 +170,7 @@ const Data = () => {
 
         try {
           const response = await axios.post(
-            "/api/media/upload_video/",
+            "http://localhost:18005/media/upload_video/",
             videoData,
             {
               headers: {
@@ -292,12 +283,16 @@ const Data = () => {
     };
 
     try {
-      const response = await axios.post("/api/media/upload_tags/", tag_data, {
-        headers: {
-          Authorization: `Bearer ${token}`, // Include the token in the request headers
-          "Content-Type": "application/json",
-        },
-      });
+      const response = await axios.post(
+        "http://localhost:18005/media/upload_tags/",
+        tag_data,
+        {
+          headers: {
+            Authorization: `Bearer ${token}`, // Include the token in the request headers
+            "Content-Type": "application/json",
+          },
+        }
+      );
 
       console.log("Upload tags response received:", response.data);
 
@@ -307,7 +302,7 @@ const Data = () => {
       };
 
       const insights = await axios.post(
-        "/api/media/get_insights/",
+        "http://localhost:18005/media/get_insights/",
         insights_data,
         {
           headers: {
