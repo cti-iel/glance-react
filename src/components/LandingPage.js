@@ -43,8 +43,8 @@ const LandingPage = () => {
         // Set the token in a cookie
         Cookies.set("authToken", response.data.access_token, {
           expires: 1, // 1 day expiration, adjust as needed
-          secure: true, // Ensure this is true if you're using HTTPS
-          sameSite: "Strict", // Adjust based on your cross-site requirements
+          secure: false, // Ensure this is true if you're using HTTPS
+          sameSite: "Lax", // Adjust based on your cross-site requirements
         });
 
         setUsername(usernameInput);
